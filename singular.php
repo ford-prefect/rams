@@ -107,11 +107,11 @@
 							$prev_post = get_previous_post();
 							$next_post = get_next_post();
 
-							if ( ! $next_post || ! $prev_post ) : ?>
+							if ( is_a( $next_post , 'WP_Post' ) || is_a( $prev_post , 'WP_Post' ) ) : ?>
 
 								<div class="post-nav">
 
-									<?php if ( ! $next_post ) : ?>
+									<?php if ( is_a( $next_post , 'WP_Post' ) ) : ?>
 										<p>
 											<strong><?php _e( 'Next', 'rams' ); ?></strong>
 											<a class="post-nav-newer" href="<?php echo get_permalink( $next_post->ID ); ?>">
@@ -120,7 +120,7 @@
 										</p>
 									<?php endif; ?>
 
-									<?php if ( ! $prev_post ) : ?>
+									<?php if ( is_a( $prev_post , 'WP_Post' ) ) : ?>
 										<p>
 											<strong><?php _e( 'Previous', 'rams' ); ?></strong>
 											<a class="post-nav-older" href="<?php echo get_permalink( $prev_post->ID ); ?>">
